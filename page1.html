@@ -19,10 +19,23 @@
             top: -2em;
             left: 20.5vw;
         }
+        #name_done, #surname_done {
+            position: relative;
+            top: -2.2em;
+            left: 18.5vw
+        }
         #email_error, #phone_error {
             position: relative;
             top: -2em;
             left: 101%;
+        }
+        #email_done, #phone_done {
+            position: relative;
+            top: -2.1em;
+            left: 97%;
+        }
+        .form {
+            background: #F9F9F9;
         }
     </style>
 </head>
@@ -44,6 +57,7 @@
                     <label for="sakheli" id="name-label">სახელი</label>
                     <input class="form-control" class="" id="sakheli" required></input>
                     <img src="./Images/Vector-1.png" alt="error icon" id="name_error" class="d-none">
+                    <img src="./Images/Vector-2.png" alt="error icon" id="name_done" class="d-none">
                     <small id="sakheli1" class="form-text text-muted">
                         მინიმუმ 2 ასო, ქართული ასოები
                     </small>
@@ -53,6 +67,7 @@
                     <label for="gvari" id="gvari_label">გვარი</label>
                     <input class="form-control" id="gvari" required></input>
                     <img src="./Images/Vector-1.png" alt="error icon" id="surname_error" class="d-none">
+                    <img src="./Images/Vector-2.png" alt="error icon" id="surname_done" class="d-none">
                     <small id="gvari1" class="form-text text-muted">
                         მინიმუმ 2 ასო, ქართული ასოები
                     </small>
@@ -71,12 +86,15 @@
                 <label for="email" class="mb-2" id="email_label">ელ.ფოსტა</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@redberry.ge">
                 <img src="./Images/Vector-1.png" alt="error icon" id="email_error" class="d-none">
+                <img src="./Images/Vector-2.png" alt="error icon" id="email_done" class="d-none">
                 <small id="emailHelp" class="form-text text-muted">უნდა მთავრდებოდეს @redberry.ge-ით</small>
             </div>
             <div class="form-group">
                 <label for="phoneNumber" class="mb-2" id="phone_label">მობილურის ნომერი</label>
-                <input type="tel" class="form-control" id="phone_number" name="phoneNumber" placeholder="+995 555 123 456">
+                <input type="tel" class="form-control" id="phone_number" name="phoneNumber" placeholder="+995555123456">
                 <img src="./Images/Vector-1.png" alt="error icon" id="phone_error" class="d-none">
+                <img src="./Images/Vector-2.png" alt="error icon" id="phone_done" class="d-none">
+
                 <small id="phone" class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</small>
 
             </div>

@@ -5,6 +5,8 @@ var name_label = document.getElementById("name-label")
 var gvari_label = document.getElementById("gvari_label")
 var name_error = document.getElementById("name_error")
 var surname_error = document.getElementById("surname_error")
+var name_done = document.getElementById("name_done")
+var surname_done = document.getElementById("surname_done")
 
 // Regular expression to match Georgian letters
 var regEx = /^[\u10A0-\u10FF]+$/
@@ -21,6 +23,8 @@ sakheli.addEventListener("input", function() {
         sakheli.classList.remove("border-3", "border-danger")
         name_label.classList.remove("text-danger")
         name_error.classList.add("d-none")
+        sakheli.classList.add("border-3", "border-success")
+        name_done.classList.remove("d-none")
         return true;
     }
 })
@@ -35,6 +39,8 @@ gvari.addEventListener("input", function(){
         gvari.classList.remove("border-3", "border-danger")
         gvari_label.classList.remove("text-danger")
         surname_error.classList.add("d-none")
+        gvari.classList.add("border-3", "border-success")
+        surname_done.classList.remove("d-none")
         return true;
     }
 })
@@ -42,6 +48,9 @@ gvari.addEventListener("input", function(){
 var email = document.getElementById("email")
 var email_label = document.getElementById("email_label")
 var email_error = document.getElementById("email_error")
+var email_done = document.getElementById("email_done")
+var phone_done = document.getElementById("phone_done")
+
 
 email.addEventListener("input", function() {
     if (!email.value.endsWith("@redberry.ge")) {
@@ -53,6 +62,8 @@ email.addEventListener("input", function() {
         email_error.classList.add("d-none")
         email_label.classList.remove("text-danger")
         email.classList.remove("border-3", "border-danger")
+        email.classList.add("border-3", "border-success")
+        email_done.classList.remove("d-none")
         return true
     }
 })
@@ -73,6 +84,8 @@ phone_number.addEventListener("input", function() {
         phone_error.classList.add("d-none");
         phone_label.classList.remove("text-danger");
         phone_number.classList.remove("border-3", "border-danger");
+        phone.classList.add("border-3", "border-success")
+        phone_done.classList.remove("d-none")
         return true
     }
 });
