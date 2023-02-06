@@ -11,60 +11,84 @@
         body {
             font-family: 'Helvetica Neue', sans-serif;                                                
         }
+        .fullname {
+            width: 20vw
+        }
+        #name_error, #surname_error {
+            position: relative;
+            top: -2em;
+            left: 20.5vw;
+        }
+        #email_error, #phone_error {
+            position: relative;
+            top: -2em;
+            left: 101%;
+        }
     </style>
 </head>
 <body>
-    <a href="./Index.html">
+    <a href="./index.html">
         <img src="./Images/Vector.png" alt="arrow" class="position-absolute mx-5 mt-4">
     </a>
-    <div class="mx-5 mt-5 px-5">
-        <div class="d-flex flex-row justify-content-between align-items-center col-6">
-            <h3>პირადი ინფო</h3>
-            <div id="pageCounter">
-                <span id="currentPage">1</span>/<span id="totalPages">3</span>
+    <div class="mx-5 mt-5 px-4">
+        <form action="" class="row mt-5 col-6">
+            <div class="d-flex flex-row justify-content-between align-items-center col-12">
+                <h3>პირადი ინფო</h3>
+                <div id="pageCounter">
+                    <span id="currentPage">1</span>/<span id="totalPages">3</span>
+                </div>
             </div>
-        </div>
-        <img src="./Images/Line 13.png" alt="line" class="d-flex justify-content-around mt-2 col-6">
-        <form action="" class="row mt-5 col-6 d-flex justify-content-between">
-            <div class="form-group col-6">
-                <label for="sakheli">სახელი</label>
-                <input class="form-control" id="sakheli" required></input>
-                <small id="sakheli" class="form-text text-muted">
-                    მინიმუმ 2 ასო, ქართული ასოები
-                </small>
+            <img src="./Images/Line 13.png" alt="line" class="d-flex justify-content-around mt-2 col-12">
+            <div class="d-flex justify-content-between">
+                <div class="form-group mt-5 fullname">
+                    <label for="sakheli" id="name-label">სახელი</label>
+                    <input class="form-control" class="" id="sakheli" required></input>
+                    <img src="./Images/Vector-1.png" alt="error icon" id="name_error" class="d-none">
+                    <small id="sakheli1" class="form-text text-muted">
+                        მინიმუმ 2 ასო, ქართული ასოები
+                    </small>
+                </div>
+    
+                <div class="form-group mt-5 fullname">
+                    <label for="gvari" id="gvari_label">გვარი</label>
+                    <input class="form-control" id="gvari" required></input>
+                    <img src="./Images/Vector-1.png" alt="error icon" id="surname_error" class="d-none">
+                    <small id="gvari1" class="form-text text-muted">
+                        მინიმუმ 2 ასო, ქართული ასოები
+                    </small>
+                </div>
             </div>
-            <div class="form-group col-6">
-                <label for="gvari">გვარი</label>
-                <input class="form-control" id="gvari" required></input>
-                <small id="gvari" class="form-text text-muted">
-                    მინიმუმ 2 ასო, ქართული ასოები
-                </small>
-            </div>
+            
             <div class="form-group my-4">
                 <label for="photo">პირადი ფოტოს ატვირთვა</label>
-                <input type="file" class="form-control-file" id="photo" value="atvirtva" required>
+                <input type="file" class="form-control-file" id="photo" required>
             </div>
             <div class="form-group">
                 <label for="about-me" class="mb-2">ჩემ შესახებ (არასავალდებულო)</label>
                 <textarea class="form-control" id="about-me" rows="3" placeholder="ზოგადი ინფო ჩემ შესახებ"></textarea>
             </div>
             <div class="form-group my-4">
-                <label for="email" class="mb-2">ელ.ფოსტა</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@redberry.ge" required>
+                <label for="email" class="mb-2" id="email_label">ელ.ფოსტა</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@redberry.ge">
+                <img src="./Images/Vector-1.png" alt="error icon" id="email_error" class="d-none">
                 <small id="emailHelp" class="form-text text-muted">უნდა მთავრდებოდეს @redberry.ge-ით</small>
             </div>
             <div class="form-group">
-                <label for="phoneNumber" class="mb-2">მობილურის ნომერი</label>
-                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="+995 551 123 456" required>
+                <label for="phoneNumber" class="mb-2" id="phone_label">მობილურის ნომერი</label>
+                <input type="tel" class="form-control" id="phone_number" name="phoneNumber" placeholder="+995 555 123 456">
+                <img src="./Images/Vector-1.png" alt="error icon" id="phone_error" class="d-none">
                 <small id="phone" class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</small>
+
             </div>
             <div class="text-end">
-                <button type="submit" class="btn my-5 col-2 px-3 py-2" style="background: #6B40E3; color: #FFF;">შემდეგი</button>
+                <a href="./page2.html">
+                    <button href="./page2.html" type="submit" class="btn my-5 col-2 px-3 py-2" style="background: #6B40E3; color: #FFF;">შემდეგი</button>
+                </a>
             </div>
         </form>
     </div>
     
     
-
+    <script src="./main.js"></script>
 </body>
 </html>
