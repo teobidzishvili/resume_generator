@@ -14,7 +14,6 @@ var regEx = /^[\u10A0-\u10FF]+$/
 sakheli.addEventListener("input", function() {
     
     if (!regEx.test(sakheli.value) || sakheli.value.length<2) {
-
         sakheli.classList.add("border-3", "border-danger")
         name_label.classList.add("text-danger")
         name_error.classList.remove("d-none")
@@ -68,24 +67,35 @@ email.addEventListener("input", function() {
     }
 })
 
-var phone_number = document.getElementById("phone_number");
-var phone_label = document.getElementById("phone_label");
-var phone_error = document.getElementById("phone_error");
+var phone_number = document.getElementById("phone_number")
+var phone_label = document.getElementById("phone_label")
+var phone_error = document.getElementById("phone_error")
 
 phone_number.addEventListener("input", function() {
-    var phoneRegEx = /^\+995\d{9}$/;
-
+    var phoneRegEx = /^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/
     if (!phoneRegEx.test(phone_number.value)) {
-        phone_error.classList.remove("d-none");
-        phone_label.classList.add("text-danger");
-        phone_number.classList.add("border-3", "border-danger");
+        phone_error.classList.remove("d-none")
+        phone_label.classList.add("text-danger")
+        phone_number.classList.add("border-3", "border-danger")
         return false
     } else {
-        phone_error.classList.add("d-none");
-        phone_label.classList.remove("text-danger");
-        phone_number.classList.remove("border-3", "border-danger");
-        phone.classList.add("border-3", "border-success")
+        phone_error.classList.add("d-none")
+        phone_label.classList.remove("text-danger")
+        phone_number.classList.remove("border-3", "border-danger")
+        phone_number.classList.add("border-3", "border-success")
         phone_done.classList.remove("d-none")
         return true
     }
-});
+})
+
+let nextButton = document.getElementById("nextButton")
+let form = document.getElementById("form")
+
+nextButton.addEventListener("click", function(event) {
+    event.preventDefault()
+    if (form.checkValidity()) {
+        window.location.href = './page2.html';
+      }
+})
+
+
