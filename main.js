@@ -1,22 +1,22 @@
 
-var sakheli = document.getElementById("sakheli")
-var gvari = document.getElementById("gvari")
-var name_label = document.getElementById("name-label")
-var gvari_label = document.getElementById("gvari_label")
-var name_error = document.getElementById("name_error")
-var surname_error = document.getElementById("surname_error")
-var name_done = document.getElementById("name_done")
-var surname_done = document.getElementById("surname_done")
+let sakheli = document.getElementById("sakheli")
+let gvari = document.getElementById("gvari")
+let name_label = document.getElementById("name-label")
+let gvari_label = document.getElementById("gvari_label")
+let name_error = document.getElementById("name_error")
+let surname_error = document.getElementById("surname_error")
+let name_done = document.getElementById("name_done")
+let surname_done = document.getElementById("surname_done")
 
 // Regular expression to match Georgian letters
-var regEx = /^[\u10A0-\u10FF]+$/
+let regEx = /^[\u10A0-\u10FF]+$/
 
 sakheli.addEventListener("input", function() {
-    
     if (!regEx.test(sakheli.value) || sakheli.value.length<2) {
         sakheli.classList.add("border-3", "border-danger")
         name_label.classList.add("text-danger")
         name_error.classList.remove("d-none")
+        name_done.classList.add("d-none")
         return false;
     }else{
         sakheli.classList.remove("border-3", "border-danger")
@@ -33,6 +33,7 @@ gvari.addEventListener("input", function(){
         gvari.classList.add("border-3", "border-danger")
         gvari_label.classList.add("text-danger")
         surname_error.classList.remove("d-none")
+        surname_done.classList.add("d-none")
         return false;
     }else{
         gvari.classList.remove("border-3", "border-danger")
@@ -44,20 +45,38 @@ gvari.addEventListener("input", function(){
     }
 })
 
-var email = document.getElementById("email")
-var email_label = document.getElementById("email_label")
-var email_error = document.getElementById("email_error")
-var email_done = document.getElementById("email_done")
-var phone_done = document.getElementById("phone_done")
+let aboutMe = document.getElementById("aboutMe")
+let about = document.getElementById("about")
+
+aboutMe.addEventListener("input", function(){
+    about.classList.remove("d-none")
+    if (aboutMe.value==0){
+        about.classList.add("d-none")
+    }
+})
+
+let email = document.getElementById("email")
+let email_label = document.getElementById("email_label")
+let email_error = document.getElementById("email_error")
+let email_done = document.getElementById("email_done")
+let phone_done = document.getElementById("phone_done")
+let at = document.getElementById("at")
+
+
 
 
 email.addEventListener("input", function() {
+    at.classList.remove("d-none")
+    if (email.value==0){
+        at.classList.add("d-none")
+    }
     if (!email.value.endsWith("@redberry.ge")) {
         email_error.classList.remove("d-none")
         email_label.classList.add("text-danger")
         email.classList.add("border-3", "border-danger")
+        email_done.classList.add("d-none")
         return false
-    } else {
+    }else {
         email_error.classList.add("d-none")
         email_label.classList.remove("text-danger")
         email.classList.remove("border-3", "border-danger")
@@ -67,16 +86,29 @@ email.addEventListener("input", function() {
     }
 })
 
-var phone_number = document.getElementById("phone_number")
-var phone_label = document.getElementById("phone_label")
-var phone_error = document.getElementById("phone_error")
+let phone_number = document.getElementById("phone_number")
+let phone_label = document.getElementById("phone_label")
+let phone_error = document.getElementById("phone_error")
+let txt
+
+phone_number.addEventListener("keyup", function () {
+    txt = this.value;
+    if (
+      txt.length == 4 ||
+      txt.length == 8 ||
+      txt.length == 11 ||
+      txt.length == 14
+    )
+      this.value = this.value + " ";
+  });
 
 phone_number.addEventListener("input", function() {
-    var phoneRegEx = /^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/
+    let phoneRegEx = /^(\+995)?(79\d{7}|5\d{8})$/
     if (!phoneRegEx.test(phone_number.value)) {
         phone_error.classList.remove("d-none")
         phone_label.classList.add("text-danger")
         phone_number.classList.add("border-3", "border-danger")
+        phone_done.classList.add("d-none")
         return false
     } else {
         phone_error.classList.add("d-none")
@@ -88,14 +120,24 @@ phone_number.addEventListener("input", function() {
     }
 })
 
+
 let nextButton = document.getElementById("nextButton")
-let form = document.getElementById("form")
+let fill = document.getElementById("fill")
+
 
 nextButton.addEventListener("click", function(event) {
     event.preventDefault()
     if (form.checkValidity()) {
-        window.location.href = './page2.html';
-      }
+        fill.classList.add('d-none')
+    }
 })
+
+
+// nextButton.addEventListener("click", function(event) {
+//     event.preventDefault()
+//     if (form.checkValidity()) {
+//         window.location.href = './page2.html';
+//       }
+// })
 
 
