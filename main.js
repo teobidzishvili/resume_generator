@@ -132,12 +132,32 @@ nextButton.addEventListener("click", function(event) {
     }
 })
 
+let positionRegEx = /^[0-9a-zA-Z.-]{2,30}$/
+let position = document.getElementById('position')
+let position_label = document.getElementById('position_label')
+let position_error = document.getElementById('position_error')
+let position_done = document.getElementById('position_done')
 
-// nextButton.addEventListener("click", function(event) {
-//     event.preventDefault()
-//     if (form.checkValidity()) {
-//         window.location.href = './page2.html';
-//       }
-// })
+
+position.addEventListener("input", function() {
+    if (!positionRegEx.test(position.value) || position.value.length<2) {
+        position.classList.add("border-3", "border-danger")
+        position_label.classList.add("text-danger")
+        position_error.classList.remove("d-none")
+        position_done.classList.add("d-none")
+        return false;
+    }else{
+        position.classList.remove("border-3", "border-danger")
+        position_label.classList.remove("text-danger")
+        position_error.classList.add("d-none")
+        position.classList.add("border-3", "border-success")
+        position_done.classList.remove("d-none")
+        return true;
+    }
+})
+
+
+
+
 
 

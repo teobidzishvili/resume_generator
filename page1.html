@@ -41,12 +41,12 @@
             top: -2.2em;
             left: 18.5vw
         }
-        #email_error, #phone_error {
+        #email_error, #phone_error, #position_error {
             position: relative;
             top: -2em;
             left: 101%;
         }
-        #email_done, #phone_done {
+        #email_done, #phone_done, #position_done {
             position: relative;
             top: -2.1em;
             left: 97%;
@@ -110,7 +110,7 @@
                 </div>
                 <div class="form-group">
                     <label for="phoneNumber" class="mb-2" id="phone_label">მობილურის ნომერი</label>
-                    <input type="tel" class="form-control" id="phone_number" name="phoneNumber" placeholder="+995 555 12 34 56" oninput="yourPhone.value=phone_number.value">
+                    <input type="tel" class="form-control" id="phone_number" name="phoneNumber" placeholder="+995 555 12 34 56" oninput="yourPhone.value=phone_number.value" onkeydown="phoneNumberFormat()">
                     <img src="./Images/Vector-1.png" alt="error icon" id="phone_error" class="d-none">
                     <img src="./Images/Vector-2.png" alt="error icon" id="phone_done" class="d-none">
                     <small id="phone" class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</small>
@@ -129,7 +129,7 @@
                 <img src="./Images/Line 13.png" alt="line" class="d-flex justify-content-around mt-2 col-12">
                 
                 <div class="form-group mt-5">
-                    <label for="position" id="position-label">თანამდებობა</label>
+                    <label for="position" id="position_label">თანამდებობა</label>
                     <input class="form-control" class="input" id="position" oninput="yourPosition.value=position.value" required></input>
                     <img src="./Images/Vector-1.png" alt="error icon" id="position_error" class="d-none">
                     <img src="./Images/Vector-2.png" alt="error icon" id="position_done" class="d-none">
@@ -138,7 +138,7 @@
                     </small>
                 </div>
                 <div class="form-group mt-5">
-                    <label for="employer" id="employer-label">დამსაქმებელი</label>
+                    <label for="employer" id="employer_label">დამსაქმებელი</label>
                     <input class="form-control" class="input" id="employer" oninput="yourEmplyer.value=employer.value" required></input>
                     <img src="./Images/Vector-1.png" alt="error icon" id="emploer_error" class="d-none">
                     <img src="./Images/Vector-2.png" alt="error icon" id="employer_done" class="d-none">
@@ -153,7 +153,7 @@
                     </div>
                     <div class="col-5">
                         <label for="end" class="my-2">დამთავრების რიცხვი</label>
-                        <input class="col-12 p-2" type="date" id="end" name="work-end" value="2018-07-22" min="2000-01-01" max="2023-12-31" required>
+                        <input class="col-12 p-2" type="date" id="end" name="work-end" value="2018-07-22" min="2000-01-01" max="2023-12-31" requested>
                     </div>
                 </div>
                 
